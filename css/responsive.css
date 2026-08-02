@@ -1,0 +1,467 @@
+/* =========================================
+   RESPONSIVE.CSS
+   Velan View Hotel
+========================================= */
+
+/* ---------- Large Tablets ---------- */
+
+@media(max-width:1200px){
+
+.hero-content h1{
+font-size:56px;
+}
+
+.hero-content h3{
+font-size:28px;
+}
+
+.about .container{
+grid-template-columns:1fr;
+gap:50px;
+}
+
+.contact-wrapper{
+grid-template-columns:1fr;
+}
+
+}
+
+
+
+/* ---------- Tablets ---------- */
+
+@media(max-width:992px){
+
+.nav-links{
+
+display:none;
+
+}
+
+.mobile-menu{
+
+display:block;
+
+color:#222;
+
+}
+
+.hero{
+
+height:90vh;
+
+}
+
+.hero-content h1{
+
+font-size:48px;
+
+}
+
+.hero-content h3{
+
+font-size:24px;
+
+}
+
+.hero-content p{
+
+font-size:17px;
+
+line-height:30px;
+
+}
+
+.booking-card{
+
+padding:30px;
+
+}
+
+.booking-card form{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.about-content h2{
+
+font-size:36px;
+
+}
+
+.section-title h2{
+
+font-size:36px;
+
+}
+
+.overlay-dark h2{
+
+font-size:42px;
+
+}
+
+.overlay-dark p{
+
+font-size:18px;
+
+}
+
+}
+
+
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+.navbar{
+
+height:75px;
+
+}
+
+.logo h2{
+
+font-size:20px;
+
+}
+
+.hero{
+
+padding:20px;
+
+}
+
+.hero-content h1{
+
+font-size:38px;
+
+}
+
+.hero-content h3{
+
+font-size:22px;
+
+}
+
+.hero-content p{
+
+font-size:16px;
+
+line-height:28px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.primary-btn,
+
+.secondary-btn{
+
+width:230px;
+
+text-align:center;
+
+}
+
+.booking-widget{
+
+margin-top:-50px;
+
+}
+
+.booking-card{
+
+padding:25px;
+
+border-radius:20px;
+
+}
+
+.booking-card h2{
+
+font-size:28px;
+
+}
+
+.booking-card form{
+
+grid-template-columns:1fr;
+
+}
+
+.about{
+
+padding:80px 0;
+
+}
+
+.about-content h2{
+
+font-size:30px;
+
+}
+
+.about-features{
+
+grid-template-columns:1fr;
+
+}
+
+.room-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.amenity-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.stats-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.gallery-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.why-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.testimonial-container{
+
+grid-template-columns:1fr;
+
+}
+
+.footer-container{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.contact-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.map iframe{
+
+height:350px;
+
+}
+
+.overlay-dark{
+
+padding:25px;
+
+}
+
+.overlay-dark h2{
+
+font-size:34px;
+
+}
+
+.overlay-dark p{
+
+font-size:16px;
+
+line-height:30px;
+
+}
+
+.whatsapp-float{
+
+width:60px;
+
+height:60px;
+
+font-size:30px;
+
+right:20px;
+
+bottom:20px;
+
+}
+
+#topBtn{
+
+width:50px;
+
+height:50px;
+
+left:20px;
+
+bottom:20px;
+
+}
+
+}
+
+
+
+/* ---------- Small Phones ---------- */
+
+@media(max-width:576px){
+
+.hero-content h1{
+
+font-size:32px;
+
+}
+
+.hero-content h3{
+
+font-size:20px;
+
+}
+
+.hero-content h4{
+
+font-size:16px;
+
+letter-spacing:2px;
+
+}
+
+.hero-content p{
+
+font-size:15px;
+
+}
+
+.booking-card{
+
+padding:20px;
+
+}
+
+.section-title h2{
+
+font-size:28px;
+
+}
+
+.about-content h2{
+
+font-size:28px;
+
+}
+
+.room-info{
+
+padding:22px;
+
+}
+
+.room-info h3{
+
+font-size:24px;
+
+}
+
+.room-info h4{
+
+font-size:22px;
+
+}
+
+.amenity-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.stats-container{
+
+grid-template-columns:1fr;
+
+}
+
+.stat-box h2{
+
+font-size:42px;
+
+}
+
+.overlay-dark h2{
+
+font-size:30px;
+
+}
+
+.footer-about h2{
+
+font-size:28px;
+
+}
+
+}
+
+
+
+/* ---------- Very Small Devices ---------- */
+
+@media(max-width:400px){
+
+.hero-content h1{
+
+font-size:28px;
+
+}
+
+.hero-content h3{
+
+font-size:18px;
+
+}
+
+.primary-btn,
+
+.secondary-btn{
+
+width:100%;
+
+}
+
+.logo img{
+
+width:45px;
+
+}
+
+.logo h2{
+
+font-size:18px;
+
+}
+
+.booking-card h2{
+
+font-size:24px;
+
+}
+
+}
