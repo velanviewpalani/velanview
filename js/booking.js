@@ -159,7 +159,7 @@ document.getElementById("payNow").addEventListener("click", function () {
 
     var options = {
 
-        key: "rzp_test_TKmWLRbqWmkS0l",
+        key: " rzp_test_TM7PKcxqMxaMnm",
 
         amount: amount * 100,
 
