@@ -1001,26 +1001,43 @@ footer .copyright{
    FLOATING WHATSAPP
 ========================================= */
 
-.whatsapp-float{
+/* =========================================
+   FLOATING WHATSAPP & CALL
+========================================= */
+
+.whatsapp-float,
+.call-float{
     position:fixed;
     right:25px;
-    bottom:25px;
     width:65px;
     height:65px;
-    background:#25D366;
     color:#fff;
     border-radius:50%;
     display:flex;
     justify-content:center;
     align-items:center;
     text-decoration:none;
-    font-size:34px;
+    font-size:30px;
     box-shadow:0 10px 25px rgba(0,0,0,.25);
     z-index:999;
     transition:.3s;
 }
 
-.whatsapp-float:hover{
+/* WhatsApp */
+.whatsapp-float{
+    bottom:105px;
+    background:#25D366;
+}
+
+/* Call */
+.call-float{
+    bottom:25px;
+    background:#007bff;
+}
+
+/* Hover */
+.whatsapp-float:hover,
+.call-float:hover{
     transform:scale(1.12);
 }
 
