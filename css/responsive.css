@@ -292,7 +292,8 @@ line-height:30px;
 
 }
 
-.whatsapp-float{
+.whatsapp-float,
+.call-float{
 
 width:60px;
 
@@ -302,8 +303,16 @@ font-size:30px;
 
 right:20px;
 
-bottom:20px;
+}
 
+/* WhatsApp */
+.whatsapp-float{
+bottom:95px;
+}
+
+/* Call */
+.call-float{
+bottom:20px;
 }
 
 #topBtn{
