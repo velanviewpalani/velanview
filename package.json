@@ -1,0 +1,9 @@
+{
+  "name": "velan-view-razorpay-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "razorpay": "^2.9.6"
+  }
+}
