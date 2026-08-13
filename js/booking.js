@@ -137,90 +137,181 @@ calculateBooking();
 // PAY NOW
 // ============================================
 
-document.getElementById("payNow").addEventListener("click", function () {
+const CREATE_ORDER_URL = "https://velan-view-api.vercel.app/api/create-order";
+const VERIFY_PAYMENT_URL = "https://velan-view-api.vercel.app/api/verify-payment";
+
+const payNowButton = document.getElementById("payNow");
+const bookingForm = document.getElementById("hotelBooking");
+
+payNowButton.addEventListener("click", async function () {
 
     calculateBooking();
 
     const name = document.getElementById("name").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const email = document.getElementById("email").value.trim();
+    const termsAccepted = bookingForm.querySelector('input[type="checkbox"]').checked;
 
     if (name === "" || phone === "" || email === "") {
-
         alert("Please fill all guest details.");
-
         return;
-
     }
 
-    let amount = parseFloat(
+    if (!termsAccepted) {
+        alert("Please agree to the Terms & Conditions.");
+        return;
+    }
+
+    const amount = parseFloat(
         advance.innerHTML.replace(/[₹,]/g, "")
     );
 
-    var options = {
+    const amountPaise = Math.round(amount * 100);
 
-        key: " rzp_test_TM7PKcxqMxaMnm",
+    if (!Number.isInteger(amountPaise) || amountPaise < 100) {
+        alert("Invalid payment amount. Please check your booking details.");
+        return;
+    }
 
-        amount: amount * 100,
+    payNowButton.disabled = true;
+    payNowButton.textContent = "Opening Payment...";
 
-        currency: "INR",
+    try {
+        // Create the Razorpay order on the secure backend.
+        const orderResponse = await fetch(CREATE_ORDER_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                amount: amountPaise,
+                currency: "INR",
+                receipt: `VVH_${Date.now()}`
+            })
+        });
 
-        name: "Velan View Hotel",
+        const orderData = await orderResponse.json();
 
-        description: "Room Booking Advance",
+        if (!orderResponse.ok || !orderData.success) {
+            throw new Error(orderData.error || "Unable to create payment order.");
+        }
 
-        image: "images/logo.png",
+        const options = {
+            key: orderData.key_id,
+            amount: orderData.amount,
+            currency: orderData.currency,
+            name: "Velan View Hotel",
+            description: "Room Booking Advance",
+            image: "images/logo.jpeg",
+            order_id: orderData.order_id,
 
-        prefill: {
+            prefill: {
+                name: name,
+                email: email,
+                contact: phone
+            },
 
-            name: name,
+            theme: {
+                color: "#d4a017"
+            },
 
-            email: email,
+            handler: async function (response) {
+                await verifyPayment(response, {
+                    name,
+                    phone,
+                    email
+                });
+            },
 
-            contact: phone
+            modal: {
+                ondismiss: function () {
+                    payNowButton.disabled = false;
+                    payNowButton.textContent = "Pay Advance & Book";
+                }
+            }
+        };
 
-        },
+        const rzp = new Razorpay(options);
 
-        theme: {
+        rzp.on("payment.failed", function (response) {
+            console.error("Razorpay payment failed:", response.error);
 
-            color: "#d4a017"
-
-        },
-
-        handler: function (response) {
-
-            const bookingId =
-                "VVH" +
-                Math.floor(Math.random() * 900000 + 100000);
-
-            // Save booking locally
-            localStorage.setItem("bookingId", bookingId);
-
-            localStorage.setItem("customerName", name);
-
-            localStorage.setItem("customerPhone", phone);
-
-            localStorage.setItem("customerEmail", email);
-
-            localStorage.setItem(
-                "paymentId",
-                response.razorpay_payment_id
+            alert(
+                response.error?.description ||
+                "Payment failed. Please try again."
             );
 
-            // WhatsApp Message
+            payNowButton.disabled = false;
+            payNowButton.textContent = "Pay Advance & Book";
+        });
 
-            let whatsappMessage =
+        rzp.open();
+
+    } catch (error) {
+        console.error("Payment initialization error:", error);
+
+        alert(
+            error.message ||
+            "Unable to start payment. Please try again."
+        );
+
+        payNowButton.disabled = false;
+        payNowButton.textContent = "Pay Advance & Book";
+    }
+});
+
+
+// ============================================
+// VERIFY PAYMENT
+// ============================================
+
+async function verifyPayment(response, customer) {
+
+    try {
+        const verificationResponse = await fetch(VERIFY_PAYMENT_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature
+            })
+        });
+
+        const result = await verificationResponse.json();
+
+        if (!verificationResponse.ok || !result.success || !result.verified) {
+            throw new Error(
+                result.error ||
+                "Payment verification failed."
+            );
+        }
+
+        const bookingId =
+            "VVH" +
+            Math.floor(Math.random() * 900000 + 100000);
+
+        localStorage.setItem("bookingId", bookingId);
+        localStorage.setItem("customerName", customer.name);
+        localStorage.setItem("customerPhone", customer.phone);
+        localStorage.setItem("customerEmail", customer.email);
+        localStorage.setItem("paymentId", response.razorpay_payment_id);
+        localStorage.setItem("razorpayOrderId", response.razorpay_order_id);
+
+        const whatsappMessage =
 `Hello Velan View Hotel,
 
 My booking payment was successful.
 
 Booking ID : ${bookingId}
 
-Name : ${name}
+Name : ${customer.name}
 
-Phone : ${phone}
+Phone : ${customer.phone}
 
-Email : ${email}
+Email : ${customer.email}
 
 Payment ID : ${response.razorpay_payment_id}
 
@@ -228,27 +319,23 @@ Please confirm my booking.
 
 Thank You.`;
 
-            let whatsappURL =
-"https://wa.me/+919894288851?text=" +
-encodeURIComponent(whatsappMessage);
+        const whatsappURL =
+            "https://wa.me/919894288851?text=" +
+            encodeURIComponent(whatsappMessage);
 
-            window.open(whatsappURL, "_blank");
+        window.open(whatsappURL, "_blank");
 
-            // Redirect
+        window.location.href = "thankyou.html";
 
-            setTimeout(function () {
+    } catch (error) {
+        console.error("Payment verification error:", error);
 
-                window.location.href =
-                    "thankyou.html";
+        alert(
+            error.message ||
+            "Payment verification failed. Please contact Velan View Hotel before making another payment."
+        );
 
-            }, 1200);
-
-        }
-
-    };
-
-    var rzp = new Razorpay(options);
-
-    rzp.open();
-
-});
+        payNowButton.disabled = false;
+        payNowButton.textContent = "Pay Advance & Book";
+    }
+}
