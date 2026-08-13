@@ -137,8 +137,11 @@ calculateBooking();
 // PAY NOW
 // ============================================
 
-const CREATE_ORDER_URL = "https://velan-view-api.vercel.app/api/create-order";
-const VERIFY_PAYMENT_URL = "https://velan-view-api.vercel.app/api/verify-payment";
+const CREATE_ORDER_URL =
+    "https://velanview.vercel.app/api/create-order";
+
+const VERIFY_PAYMENT_URL =
+    "https://velanview.vercel.app/api/verify-payment";
 
 const payNowButton = document.getElementById("payNow");
 const bookingForm = document.getElementById("hotelBooking");
