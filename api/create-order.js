@@ -8,8 +8,8 @@ const razorpay = new Razorpay({
 const allowedOrigins = new Set([
   "https://velanview.in",
   "https://www.velanview.in",
+  "https://velanview.vercel.app",
 ]);
-
 module.exports = async function handler(req, res) {
   const origin = req.headers.origin;
   if (allowedOrigins.has(origin)) {
