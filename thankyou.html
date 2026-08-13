@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Received | Velan View Hotel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .thankyou-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px;background:#faf8f2}
+        .thankyou-card{max-width:650px;width:100%;background:#fff;padding:50px 30px;text-align:center;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.08)}
+        .thankyou-icon{font-size:60px;margin-bottom:15px}
+        .thankyou-card h1{margin-bottom:10px}
+        .booking-id{font-size:22px;font-weight:700;margin:20px 0}
+        .thankyou-card a{display:inline-block;margin-top:20px;text-decoration:none}
+    </style>
+</head>
+<body>
+    <main class="thankyou-page">
+        <section class="thankyou-card">
+            <div class="thankyou-icon">✓</div>
+            <h1>Payment Successful</h1>
+            <p>Thank you for booking with Velan View Hotel.</p>
+            <p>Your payment has been verified successfully. The hotel team will confirm your stay.</p>
+            <div class="booking-id" id="bookingId"></div>
+            <a href="index.html" class="primary-btn">Back to Hotel</a>
+        </section>
+    </main>
+
+    <script>
+        const bookingId = localStorage.getItem("bookingId");
+        document.getElementById("bookingId").textContent =
+            bookingId ? `Booking ID: ${bookingId}` : "Booking received";
+    </script>
+</body>
+</html>
