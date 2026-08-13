@@ -3,6 +3,7 @@ const crypto = require("crypto");
 const allowedOrigins = new Set([
   "https://velanview.in",
   "https://www.velanview.in",
+  "https://velanview.vercel.app",
 ]);
 
 module.exports = async function handler(req, res) {
