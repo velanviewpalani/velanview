@@ -290,7 +290,7 @@ header {
             rgba(8, 7, 5, 0.18) 75%,
             rgba(8, 7, 5, 0.10) 100%
         ),
-        url("../images/hero.jpg");
+        url("../images/hero.jpeg");
 
     background-size: cover;
     background-position: center;
