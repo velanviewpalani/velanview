@@ -171,6 +171,43 @@ header {
     letter-spacing: 3px;
 }
 
+.logo {
+    position: relative;
+}
+
+
+.header-address {
+    position: absolute;
+    top: 76px;
+    left: 84px;
+    width: 430px;
+    margin: 0;
+    color: rgba(255,255,255,.78);
+    font-size: 10px;
+    line-height: 1.35;
+    letter-spacing: .35px;
+}
+
+.room-price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.old-price {
+    color: #999;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.offer-price {
+    color: var(--gold-dark);
+    font-size: 21px;
+    font-weight: 700;
+}
 .logo h4 {
     position: absolute;
     margin-top: 47px;
