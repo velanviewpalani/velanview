@@ -5,7 +5,7 @@
 // After pushing to GitHub, Vercel will automatically redeploy.
 
 const ROOM_PRICES = {
-    deluxeAC: 2000,
+    deluxeAC: 2500,
     deluxeNonAC: 1400,
-    familySuite: 3000
+    familySuite: 3500
 };
