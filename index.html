@@ -73,7 +73,6 @@ rel="stylesheet">
 
 <h2>VELAN VIEW</h2>
 <h4>50 METERS AWAY FROM TEMPLE STEPS</h4>
-<p class="header-address">112, Opp. Devasthanam Head Office, North Giriveethi, Adivaram, Palani, Tamil Nadu</p>
 
 </div>
 
@@ -385,7 +384,7 @@ Hot Water and Premium Bedding.
 
 </p>
 
-<h4 class="room-price"><span class="old-price">₹2700</span> <span class="offer-price">₹2500 / Night</span></h4>
+<h4 id="price-deluxe-ac">₹2,000 / Night</h4>
 
 <a href="booking.html">
 
@@ -414,7 +413,7 @@ TV, Hot Water and peaceful ambience.
 
 </p>
 
-<h4 class="room-price"><span class="old-price">₹1,278</span> <span class="offer-price">₹1,199 / Night</span></h4>
+<h4 id="price-deluxe-nonac">₹1,400 / Night</h4>
 
 <a href="booking.html">
 
@@ -444,7 +443,7 @@ extra beds and spacious seating.
 
 </p>
 
-<h4 class="room-price"><span class="old-price">₹3789</span> <span class="offer-price">₹3500 / Night</span></h4>
+<h4 id="price-family-suite">₹3,000 / Night</h4>
 
 <a href="booking.html">
 
@@ -539,46 +538,6 @@ Book Now
 <i class="fa-solid fa-location-dot"></i>
 
 <h3>Near Temple</h3>
-
-</div>
-
-<div class="amenity-card">
-
-<i class="fa-solid fa-child"></i>
-
-<h3>Children's Towels</h3>
-
-</div>
-
-<div class="amenity-card">
-
-<i class="fa-solid fa-car"></i>
-
-<h3>In-house Transport</h3>
-
-</div>
-
-<div class="amenity-card">
-
-<i class="fa-solid fa-utensils"></i>
-
-<h3>Food on Request</h3>
-
-</div>
-
-<div class="amenity-card">
-
-<i class="fa-solid fa-mug-hot"></i>
-
-<h3>Kettle Facility</h3>
-
-</div>
-
-<div class="amenity-card">
-
-<i class="fa-solid fa-plus"></i>
-
-<h3>Add-on Services</h3>
 
 </div>
 
@@ -1044,7 +1003,16 @@ once:true
 
 </script>
 
+<script src="js/prices.js"></script>
 <script src="js/script.js"></script>
+<script>
+// Display room prices from the single room-price configuration.
+if (typeof ROOM_PRICES !== "undefined") {
+    document.getElementById("price-deluxe-ac").textContent = "₹" + ROOM_PRICES.deluxeAC.toLocaleString("en-IN") + " / Night";
+    document.getElementById("price-deluxe-nonac").textContent = "₹" + ROOM_PRICES.deluxeNonAC.toLocaleString("en-IN") + " / Night";
+    document.getElementById("price-family-suite").textContent = "₹" + ROOM_PRICES.familySuite.toLocaleString("en-IN") + " / Night";
+}
+</script>
 
 
     <!-- Floating Temple Details -->
