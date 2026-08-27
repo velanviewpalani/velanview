@@ -1,753 +1,199 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Book Your Stay | Hotel Velan View </title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/responsive.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-</head>
-
-<body>
-
-
-<!-- HEADER -->
-
-<header>
-
-<nav class="navbar">
-
-<div class="logo">
-
-<img src="images/logo.jpeg">
-
-<h2>VELAN VIEW</h2>
-
-</div>
-
-<ul class="nav-links">
-
-<li><a href="index.html">Home</a></li>
-
-<li><a href="gallery.html">Gallery</a></li>
-
-<li><a href="contact.html">Contact</a></li>
-
-</ul>
-
-</nav>
-
-</header>
-
-
-
-
-<section class="booking-page">
-
-<div class="container">
-
-<div class="booking-title">
-
-<h1>
-
-Reserve Your Stay
-
-</h1>
-
-<p>
-
-Complete your booking in just a few steps.
-
-</p>
-
-</div>
-
-
-
-<div class="booking-wrapper">
-
-
-
-<!-- LEFT -->
-
-<div class="booking-form">
-
-<h2>
-
-Guest Information
-
-</h2>
-
-<form id="hotelBooking">
-
-<div class="input-box">
-
-<label>Full Name</label>
-
-<input
-
-type="text"
-
-id="name"
-
-required>
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Mobile Number</label>
-
-<input
-
-type="tel"
-
-id="phone"
-
-required>
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Email</label>
-
-<input
-
-type="email"
-
-id="email"
-
-required>
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Check In</label>
-
-<input
-
-type="date"
-
-id="checkin"
-
-required>
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Check Out</label>
-
-<input
-
-type="date"
-
-id="checkout"
-
-required>
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Guests</label>
-
-<select id="guests">
-
-<option>1</option>
-
-<option>2</option>
-
-<option>3</option>
-
-<option>4</option>
-
-<option>5</option>
-
-<option>Family</option>
-
-</select>
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Room Type</label>
-
-<select id="room">
-
-<option value="1999">
-
-Deluxe AC
-
-</option>
-
-<option value="1199">
-
-Deluxe Non AC
-
-</option>
-
-<option value="2999">
-
-Family Suite
-
-</option>
-
-</select>
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>Special Request</label>
-
-<textarea
-
-rows="4"
-
-id="message"
-
-placeholder="Optional">
-
-</textarea>
-
-</div>
-<!-- ========================================= -->
-<!-- COUPON -->
-<!-- ========================================= -->
-
-<div class="input-box">
-
-    <label>Coupon Code</label>
-    
-    <input
-    type="text"
-    id="coupon"
-    placeholder="Enter Coupon Code">
-    
-    </div>
-    
-    <br>
-    
-    <hr>
-    
-    <br>
-    
-    <!-- ========================================= -->
-    <!-- BOOKING SUMMARY -->
-    <!-- ========================================= -->
-    
-    <div class="booking-summary">
-    
-    <h2>
-    
-    Booking Summary
-    
-    </h2>
-    
-    <div class="summary-row">
-    
-    <span>
-    
-    Room Price
-    
-    </span>
-    
-    <span id="roomPrice">
-    
-    ₹2000
-    
-    </span>
-    
-    </div>
-    
-    <div class="summary-row">
-    
-    <span>
-    
-    No. of Nights
-    
-    </span>
-    
-    <span id="nights">
-    
-    1
-    
-    </span>
-    
-    </div>
-    
-    <div class="summary-row">
-    
-    <span>
-    
-    Room Total
-    
-    </span>
-    
-    <span id="roomTotal">
-    
-    ₹2000
-    
-    </span>
-    
-    </div>
-    
-    <div class="summary-row">
-    
-    <span>
-    
-    GST (12%)
-    
-    </span>
-    
-    <span id="gst">
-    
-    ₹240
-    
-    </span>
-    
-    </div>
-    
-    <div class="summary-row">
-    
-    <span>
-    
-    Discount
-    
-    </span>
-    
-    <span id="discount">
-    
-    ₹0
-    
-    </span>
-    
-    </div>
-    
-    <hr>
-    
-    <div class="summary-row total">
-    
-    <span>
-    
-    Grand Total
-    
-    </span>
-    
-    <span id="grandTotal">
-    
-    ₹2240
-    
-    </span>
-    
-    </div>
-    
-    <div class="summary-row advance">
-    
-    <span>
-    
-    Advance Payable
-    
-    </span>
-    
-    <span id="advance">
-    
-    ₹1000
-    
-    </span>
-    
-    </div>
-    
-    <br>
-    
-    <label>
-    
-    <input type="checkbox" required>
-    
-    I agree to the Terms &
-    Conditions.
-    
-    </label>
-    
-    <br><br>
-    
-    <button
-    type="button"
-    id="payNow"
-    class="primary-btn">
-    
-    Pay Advance & Book
-    
-    </button>
-    
-    </div>
-    
-    </form>
-    
-    </div>
-    
-    <!-- ========================================= -->
-    <!-- RIGHT SIDE -->
-    <!-- ========================================= -->
-    
-    <div class="booking-info">
-    
-    <img
-    src="images/rooms/ac-room.jpeg"
-    alt="Velan View Hotel">
-    
-    <div class="hotel-details">
-    
-    <h2>
-    
-    Velan View Hotel
-    
-    </h2>
-    
-    <p>
-    
-    <i class="fa-solid fa-location-dot"></i>
-    
-    Near Arulmigu
-    Dhandayuthapani Swamy Temple,
-    Palani.
-    
-    </p>
-    
-    <p>
-    
-    <i class="fa-solid fa-wifi"></i>
-    
-    Free High Speed WiFi
-    
-    </p>
-    
-    <p>
-    
-    <i class="fa-solid fa-square-parking"></i>
-    
-    Free Parking
-    
-    </p>
-    
-    <p>
-    
-    <i class="fa-solid fa-mug-hot"></i>
-    
-    24x7 Hot Water
-    
-    </p>
-    
-    <p>
-    
-    <i class="fa-solid fa-tv"></i>
-    
-    Smart TV
-    
-    </p>
-    
-    <p>
-    
-    <i class="fa-solid fa-clock"></i>
-    
-    Check-in : 12 PM
-    
-    </p>
-    
-    <p>
-    
-    <i class="fa-solid fa-clock"></i>
-    
-    Check-out : 12 AM
-    
-    </p>
-    
-    </div>
-    
-    </div>
-    
-    </div>
-    
-    </div>
-    
-    </section>
-    <!-- ========================================= -->
-<!-- FLOATING WHATSAPP -->
-<!-- ========================================= -->
-
-<a href="https://wa.me/+919894288851"
-class="whatsapp-float"
-target="_blank">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-</a>
-
-
-
-<!-- ========================================= -->
-<!-- FOOTER -->
-<!-- ========================================= -->
-
-<footer>
-
-<div class="footer-container">
-
-<div class="footer-about">
-
-<h2>
-
-Hotel Velan View 
-
-</h2>
-
-<p>
-
-Luxury stay near
-Arulmigu Dhandayuthapani
-Swamy Temple, Palani.
-
-</p>
-
-</div>
-
-<div class="footer-links">
-
-<h3>
-
-Quick Links
-
-</h3>
-
-<a href="index.html">
-
-Home
-
-</a>
-
-<a href="gallery.html">
-
-Gallery
-
-</a>
-
-<a href="contact.html">
-
-Contact
-
-</a>
-
-<a href="booking.html">
-
-Book Room
-
-</a>
-
-</div>
-
-<div class="footer-contact">
-
-<h3>
-
-Contact
-
-</h3>
-
-<p>
-
-+91 9894288851
-
-</p>
-
-<p>
-
-info@velanview.in
-
-</p>
-
-<p>
-
-Palani, Tamil Nadu
-
-</p>
-
-</div>
-
-</div>
-
-<hr>
-
-<p class="copyright">
-
-© Hotel 2026 Velan View 
-
-</p>
-
-</footer>
-
-
-
-
-<!-- ========================================= -->
-<!-- FLOATING WHATSAPP -->
-<!-- ========================================= -->
-
-<a href="https://wa.me/+919894288851"
-class="whatsapp-float"
-target="_blank">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-</a>
-
-
-
-<!-- ========================================= -->
-<!-- FOOTER -->
-<!-- ========================================= -->
-
-<footer>
-
-<div class="footer-container">
-
-<div class="footer-about">
-
-<h2>
-
-Velan View Hotel
-
-</h2>
-
-<p>
-
-Luxury stay near
-Arulmigu Dhandayuthapani
-Swamy Temple, Palani.
-
-</p>
-
-</div>
-
-<div class="footer-links">
-
-<h3>
-
-Quick Links
-
-</h3>
-
-<a href="index.html">
-
-Home
-
-</a>
-
-<a href="gallery.html">
-
-Gallery
-
-</a>
-
-<a href="contact.html">
-
-Contact
-
-</a>
-
-<a href="booking.html">
-
-Book Room
-
-</a>
-
-</div>
-
-<div class="footer-contact">
-
-<h3>
-
-Contact
-
-</h3>
-
-<p>
-
-+91 9894288851
-
-</p>
-
-<p>
-
-info@velanview.in
-
-</p>
-
-<p>
-
-Palani, Tamil Nadu
-
-</p>
-
-</div>
-
-</div>
-
-<hr>
-
-<p class="copyright">
-
-© 2026 Hotel Velan View 
-
-</p>
-
-</footer>
-
-
-
-
-<!-- ========================================= -->
-<!-- RAZORPAY SDK -->
-<!-- ========================================= -->
-
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src="js/booking.js"></script>
-
-</body>
-
-</html>
+(() => {
+    const form = document.getElementById("hotelBooking");
+    if (!form) return;
+
+    const roomSelect = document.getElementById("room");
+    const roomPriceEl = document.getElementById("roomPrice");
+    const nightsEl = document.getElementById("nights");
+    const roomTotalEl = document.getElementById("roomTotal");
+    const gstEl = document.getElementById("gst");
+    const discountEl = document.getElementById("discount");
+    const grandTotalEl = document.getElementById("grandTotal");
+    const advanceEl = document.getElementById("advance");
+    const payButton = document.getElementById("payNow");
+
+    let rooms = [];
+    let selectedRoom = null;
+    const GST_RATE = 0.12;
+    const ADVANCE_AMOUNT = 1000;
+
+    const money = value => "₹" + Math.round(value).toLocaleString("en-IN");
+
+    function calculateNights() {
+        const checkin = document.getElementById("checkin").value;
+        const checkout = document.getElementById("checkout").value;
+        if (!checkin || !checkout) return 1;
+        const start = new Date(checkin + "T00:00:00");
+        const end = new Date(checkout + "T00:00:00");
+        const diff = Math.ceil((end - start) / 86400000);
+        return diff > 0 ? diff : 1;
+    }
+
+    function updateSummary() {
+        selectedRoom = rooms.find(r => String(r.id) === String(roomSelect.value)) || null;
+        const price = selectedRoom ? Number(selectedRoom.price) : 0;
+        const nights = calculateNights();
+        const roomTotal = price * nights;
+        const gst = roomTotal * GST_RATE;
+        const discount = 0;
+        const grandTotal = roomTotal + gst - discount;
+
+        roomPriceEl.textContent = money(price);
+        nightsEl.textContent = String(nights);
+        roomTotalEl.textContent = money(roomTotal);
+        gstEl.textContent = money(gst);
+        discountEl.textContent = money(discount);
+        grandTotalEl.textContent = money(grandTotal);
+        advanceEl.textContent = money(Math.min(ADVANCE_AMOUNT, grandTotal));
+    }
+
+    async function loadRooms() {
+        roomSelect.innerHTML = '<option value="">Loading rooms...</option>';
+        const { data, error } = await supabaseClient
+            .from("rooms")
+            .select("id, room_name, price, available_rooms, active")
+            .eq("active", true)
+            .order("id");
+
+        if (error) {
+            console.error(error);
+            roomSelect.innerHTML = '<option value="">Unable to load rooms</option>';
+            updateSummary();
+            return;
+        }
+
+        rooms = (data || []).filter(room => Number(room.available_rooms) > 0);
+        roomSelect.innerHTML = "";
+
+        if (!rooms.length) {
+            roomSelect.innerHTML = '<option value="">No rooms currently available</option>';
+            updateSummary();
+            return;
+        }
+
+        rooms.forEach(room => {
+            const option = document.createElement("option");
+            option.value = room.id;
+            option.textContent = `${room.room_name} — ${money(room.price)} / Night`;
+            roomSelect.appendChild(option);
+        });
+
+        updateSummary();
+    }
+
+    function validateDates() {
+        const checkinEl = document.getElementById("checkin");
+        const checkoutEl = document.getElementById("checkout");
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        const todayStr = `${yyyy}-${mm}-${dd}`;
+        checkinEl.min = todayStr;
+        checkoutEl.min = todayStr;
+
+        if (checkinEl.value && checkoutEl.value && checkoutEl.value <= checkinEl.value) {
+            alert("Check-out date must be after check-in date.");
+            return false;
+        }
+        return true;
+    }
+
+    roomSelect.addEventListener("change", updateSummary);
+    document.getElementById("checkin").addEventListener("change", () => {
+        const checkout = document.getElementById("checkout");
+        checkout.min = document.getElementById("checkin").value || checkout.min;
+        updateSummary();
+    });
+    document.getElementById("checkout").addEventListener("change", updateSummary);
+
+    payButton.addEventListener("click", async () => {
+        if (!form.reportValidity()) return;
+        if (!validateDates() || !selectedRoom) return;
+
+        const grandTotal = Number(grandTotalEl.textContent.replace(/[^0-9]/g, ""));
+        const advance = Math.min(ADVANCE_AMOUNT, grandTotal);
+        if (advance < 100) {
+            alert("The booking amount is too low for online payment.");
+            return;
+        }
+
+        payButton.disabled = true;
+        payButton.textContent = "Preparing Payment...";
+
+        try {
+            const response = await fetch("/api/create-order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    amount: Math.round(advance * 100),
+                    currency: "INR",
+                    receipt: `VVH_${Date.now()}`
+                })
+            });
+            const result = await response.json();
+            if (!response.ok || !result.success) throw new Error(result.error || "Unable to create payment order");
+
+            const options = {
+                key: result.key_id,
+                amount: result.amount,
+                currency: result.currency,
+                name: "Velan View Hotel",
+                description: `${selectedRoom.room_name} booking advance`,
+                order_id: result.order_id,
+                prefill: {
+                    name: document.getElementById("name").value,
+                    email: document.getElementById("email").value,
+                    contact: document.getElementById("phone").value
+                },
+                theme: { color: "#b8860b" },
+                handler: async function (payment) {
+                    try {
+                        const verifyResponse = await fetch("/api/verify-payment", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(payment)
+                        });
+                        const verification = await verifyResponse.json();
+                        if (!verifyResponse.ok || !verification.verified) throw new Error(verification.error || "Payment verification failed");
+
+                        const params = new URLSearchParams({
+                            payment_id: verification.payment_id,
+                            order_id: verification.order_id,
+                            room: selectedRoom.room_name,
+                            name: document.getElementById("name").value,
+                            checkin: document.getElementById("checkin").value,
+                            checkout: document.getElementById("checkout").value
+                        });
+                        window.location.href = `thankyou.html?${params.toString()}`;
+                    } catch (error) {
+                        console.error(error);
+                        alert("Payment was received, but verification could not be completed. Please contact Velan View with your payment ID.");
+                    }
+                },
+                modal: {
+                    ondismiss: () => {
+                        payButton.disabled = false;
+                        payButton.textContent = "Pay Advance & Book";
+                    }
+                }
+            };
+
+            const razorpay = new Razorpay(options);
+            razorpay.on("payment.failed", function (response) {
+                console.error(response.error);
+                alert(response.error && response.error.description ? response.error.description : "Payment failed. Please try again.");
+                payButton.disabled = false;
+                payButton.textContent = "Pay Advance & Book";
+            });
+            razorpay.open();
+        } catch (error) {
+            console.error(error);
+            alert(error.message || "Unable to start payment. Please try again.");
+            payButton.disabled = false;
+            payButton.textContent = "Pay Advance & Book";
+        }
+    });
+
+    loadRooms();
+})();
