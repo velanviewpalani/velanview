@@ -1016,7 +1016,14 @@ once:true
 <script src="js/supabase-config.js"></script>
 <script src="js/prices.js"></script>
 <script src="js/script.js"></script>
-
+<script>
+// Display room prices from the single room-price configuration.
+if (typeof ROOM_PRICES !== "undefined") {
+    document.getElementById("price-deluxe-ac").textContent = "₹" + ROOM_PRICES.deluxeAC.toLocaleString("en-IN") + " / Night";
+    document.getElementById("price-deluxe-nonac").textContent = "₹" + ROOM_PRICES.deluxeNonAC.toLocaleString("en-IN") + " / Night";
+    document.getElementById("price-family-suite").textContent = "₹" + ROOM_PRICES.familySuite.toLocaleString("en-IN") + " / Night";
+}
+</script>
 
 
     <!-- Floating Temple Details -->
