@@ -4,6 +4,8 @@
   "private": true,
   "type": "commonjs",
   "dependencies": {
-    "razorpay": "^2.9.6"
+    "razorpay": "^2.9.6",
+    "@supabase/supabase-js": "^2.57.0"
   }
 }
+
