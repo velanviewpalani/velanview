@@ -1,45 +1,26 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velan View Admin</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Velan View - Staff Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-<div class="app-shell">
-  <section id="loginView" class="card auth-card">
-    <div class="brand">VELAN VIEW</div>
-    <h1>Admin Login</h1>
-    <p class="muted">Manage room rates and availability.</p>
-    <form id="loginForm">
-      <label>Email</label>
-      <input id="loginEmail" type="email" autocomplete="username" required>
-      <label>Password</label>
-      <input id="loginPassword" type="password" autocomplete="current-password" required>
-      <button type="submit">Login</button>
-      <p id="loginMessage" class="message"></p>
-    </form>
+<div class="shell">
+  <section id="loginView" class="card auth">
+    <div class="brand">VELAN VIEW</div><h1>Staff Login</h1><p>Sign in to view bookings and room inventory.</p>
+    <form id="loginForm"><label>Email</label><input id="loginEmail" type="email" required autocomplete="username"><label>Password</label><input id="loginPassword" type="password" required autocomplete="current-password"><button>Login</button><div id="loginMessage" class="msg"></div></form>
   </section>
 
-  <section id="dashboardView" class="dashboard hidden">
-    <header class="topbar">
-      <div><div class="brand">VELAN VIEW</div><h1>Room Management</h1></div>
-      <div class="top-actions"><a href="../index.html" target="_blank">View Website</a><button id="logoutBtn" class="secondary">Logout</button></div>
-    </header>
-
-    <div class="stats">
-      <div class="stat"><span>Room Types</span><strong id="roomCount">0</strong></div>
-      <div class="stat"><span>Available Rooms</span><strong id="availableCount">0</strong></div>
-    </div>
-
-    <div class="section-head"><div><h2>Rooms</h2><p class="muted">Change price or availability and press Save.</p></div><button id="refreshBtn" class="secondary">Refresh</button></div>
-    <div id="roomsContainer" class="rooms"></div>
-    <p id="dashboardMessage" class="message"></p>
+  <section id="dashboardView" class="hidden">
+    <header class="top"><div><div class="brand">VELAN VIEW</div><h1 id="pageTitle">Bookings & Inventory</h1><div id="roleText" class="role"></div></div><button id="logoutBtn" class="secondary">Logout</button></header>
+    <div id="message" class="msg"></div>
+    <div class="stats"><div class="stat"><span>Total room types</span><strong id="roomTypes">0</strong></div><div class="stat"><span>Available rooms</span><strong id="availableRooms">0</strong></div><div class="stat"><span>Booked rooms</span><strong id="bookedRooms">0</strong></div><div class="stat"><span>Bookings</span><strong id="bookingCount">0</strong></div></div>
+    <section class="card"><div class="sectionTitle"><div><h2>Room Inventory</h2><p>Current live inventory from the website.</p></div><button id="refreshBtn" class="secondary">Refresh</button></div><div id="rooms" class="rooms"></div></section>
+    <section class="card"><div class="sectionTitle"><div><h2>Bookings</h2><p>Paid bookings received through the website.</p></div></div><div class="tableWrap"><table><thead><tr><th>Booking</th><th>Guest</th><th>Room</th><th>Stay</th><th>Amount</th><th>Status</th></tr></thead><tbody id="bookings"></tbody></table></div><div id="noBookings" class="empty hidden">No bookings yet.</div></section>
   </section>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
